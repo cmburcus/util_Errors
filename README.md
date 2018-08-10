@@ -6,6 +6,21 @@ This utility is used to define Javascript errors that can be thrown from within 
 
 [Objection ORM](https://vincit.github.io/objection.js/) is added as a dependency in this project to be able to throw a ValidationError should you wish to throw one manually.
 
+**Table of contents**
+* [Usage](#usage)
+  * throwModelValidationError
+  * throwAuthenticationError
+  * throwInvalidTokenError
+  * throwInvalidArgumentError
+* [Docker](#docker)
+* [Development requirements](#requirements-for-evelopment)
+* [Setup](#setup)
+* [Commands](#commands)
+* [Testing](#Testing)
+* [Contributions](#contributions)
+
+---
+
 ## Usage
 
 In your `package.json`, add the following dependency:
@@ -47,6 +62,10 @@ Use the following functions as required:
 
 To make development and deployment easy, this service makes use of [Docker and Docker Compose](https://docs.docker.com/).
 
+**Containers**
+ * node:9.11.1
+   * name: error_util_node
+
 ## Requirements for Development
 
 In order to run this project, you simply need [Docker and Docker Compose](https://docs.docker.com/).
@@ -55,10 +74,6 @@ Any other system dependencies come already set up using Docker so you do not nee
 
  * Docker >= 18.03
  * Docker Compose >= 1.21
-
-### Containers
- * node:9.11.1
-   * name: error_util_node
 
 ## Setup
 
