@@ -6,9 +6,6 @@ This utility is used to define Javascript errors that can be thrown from within 
 
 [Objection ORM](https://vincit.github.io/objection.js/) is added as a dependency in this project to be able to throw a ValidationError should you wish to throw one manually.
 
----
----
-
 ## Usage
 
 In your `package.json`, add the following dependency:
@@ -46,14 +43,9 @@ Use the following functions as required:
 * name: InvalidArgumentError
 * statusCode: 400
 
----
----
-
 ## Docker
 
 To make development and deployment easy, this service makes use of [Docker and Docker Compose](https://docs.docker.com/).
-
----
 
 ## Requirements for Development
 
@@ -75,9 +67,6 @@ git clone git@github.com:cmburcus/util_Errors.git
 
 cd util_Errors
 ```
-
----
----
 
 ## Commands
 
@@ -174,9 +163,6 @@ Run your tests. You can modify the test files in between runs
 When you're done, you can stop the testing environment
 
 `make stop-env`
-
----
----
 
 ## Contributions
 
