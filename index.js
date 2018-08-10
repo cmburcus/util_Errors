@@ -27,7 +27,7 @@ module.exports = {
   },
 
   /**
-   * Throws an invalid jwt token error
+   * Throws an invalid token error
    */
   throwInvalidTokenError: (name, message) => {
     throw new InvalidTokenError(name, message);

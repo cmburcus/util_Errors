@@ -6,6 +6,49 @@ This utility is used to define Javascript errors that can be thrown from within 
 
 [Objection ORM](https://vincit.github.io/objection.js/) is added as a dependency in this project to be able to throw a ValidationError should you wish to throw one manually.
 
+---
+---
+
+## Usage
+
+In your `package.json`, add the following dependency:
+
+```
+"errors-util": "git+ssh//git@github.com:cmburcus/util_Errors.git"
+```
+
+Then install your dependencies with `npm` or `yarn`
+
+In your code, import the package:
+
+`const objectionFiltersUtil = require('errors-util');`
+
+Use the following functions as required:
+
+`throwModelValidationError(column, message)` - Throws an objection validation error
+* type: ValidationError
+* name: ModelValidation
+* statusCode: 400
+
+`throwAuthenticationError()` - Throws an authentication error
+* type: AuthenticationError
+* name: AuthenticationError
+* statusCode: 401
+
+`throwInvalidTokenError(name, message)` - Throws an invalid token error
+* type: InvalidTokenError
+* name: Same as passed as an argument
+* message: Same as passed as an argument
+* statusCode: 401
+
+`throwInvalidArgumentError()` - Throws an invalid argument error
+* type: InvalidArgumentError
+* name: InvalidArgumentError
+* statusCode: 400
+
+---
+---
+
 ## Docker
 
 To make development and deployment easy, this service makes use of [Docker and Docker Compose](https://docs.docker.com/).
@@ -28,10 +71,13 @@ Any other system dependencies come already set up using Docker so you do not nee
 ## Setup
 
 ```
-git clone git@github.com:cmburcus/util_errors.git
+git clone git@github.com:cmburcus/util_Errors.git
 
 cd util_Errors
 ```
+
+---
+---
 
 ## Commands
 
@@ -128,6 +174,9 @@ Run your tests. You can modify the test files in between runs
 When you're done, you can stop the testing environment
 
 `make stop-env`
+
+---
+---
 
 ## Contributions
 
