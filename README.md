@@ -26,14 +26,14 @@ This utility is used to define Javascript errors that can be thrown from within 
 In your `package.json`, add the following dependency:
 
 ```
-"errors-util": "git+ssh//git@github.com:cmburcus/util_Errors.git"
+"error-util": "git+ssh//git@github.com:cmburcus/util_Errors.git"
 ```
 
 Then install your dependencies with `npm` or `yarn`
 
 In your code, import the package:
 
-`const objectionFiltersUtil = require('errors-util');`
+`const errorUtil = require('error-util');`
 
 Use the following functions as required:
 
