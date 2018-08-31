@@ -47,4 +47,6 @@ module.exports = {
   throwValidationError: (error) => {
     throw new ValidationError(error);
   },
+
+  ValidationError: ValidationError,
 };
