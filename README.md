@@ -37,26 +37,35 @@ In your code, import the package:
 
 Use the following functions as required:
 
-`throwModelValidationError(column, message)` - Throws an objection validation error
+`throwModelValidationError(error)` - Throws an objection validation error
 * type: ValidationError
 * name: ModelValidation
 * statusCode: 400
 
-`throwAuthenticationError()` - Throws an authentication error
+`throwAuthenticationError(error)` - Throws an authentication error
 * type: AuthenticationError
-* name: AuthenticationError
-* statusCode: 401
+* message: 'Authentication failed'
+* status: `401`
+* error: `error` as passed as an argument
 
-`throwInvalidTokenError(name, message)` - Throws an invalid token error
+`throwInvalidTokenError(error)` - Throws an invalid token error
 * type: InvalidTokenError
-* name: Same as passed as an argument
-* message: Same as passed as an argument
-* statusCode: 401
+* message: 'Invalid token'
+* status: `401`
+* error: `error` as passed as an argument
 
-`throwInvalidArgumentError()` - Throws an invalid argument error
+`throwInvalidArgumentError(error)` - Throws an invalid argument error
 * type: InvalidArgumentError
-* name: InvalidArgumentError
-* statusCode: 400
+* message: 'Invalid argument'
+* status: `400`
+* error: `error` as passed as an argument
+
+`throwValidationError(error)` - Throws a validation error
+* type: ValidationError
+* message: 'Validation failed'
+* status: `400`
+* error: `error` as passed as an argument
+
 
 ## Docker
 

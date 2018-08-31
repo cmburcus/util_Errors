@@ -7,17 +7,21 @@ const expect = chai.expect;
 
 describe('TESTING: AuthenticationError', () => {
   it('it should create a new object', () => {
-    const error = new AuthenticationError();
+    const authenticationError = {
+      email: ['invalid email'],
+    };
+
+    const error = new AuthenticationError(authenticationError);
 
     expect(error).to.be.an('error');
-    expect(error)
-      .to.have.property('name')
-      .equal('AuthenticationError');
     expect(error)
       .to.have.property('type')
       .equal('AuthenticationError');
     expect(error)
-      .to.have.property('statusCode')
+      .to.have.property('status')
       .equal(401);
+    expect(error)
+      .to.have.property('error')
+      .equal(authenticationError);
   });
 });

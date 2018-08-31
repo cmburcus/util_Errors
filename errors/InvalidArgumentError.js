@@ -1,12 +1,19 @@
 'use strict';
 
+/**
+ * This class can be used to throw when an argument is invalid
+ */
 class InvalidArgumentError extends Error {
-  constructor() {
+  /**
+   * @param {*} error Error description (can be any type)
+   */
+  constructor(error) {
     super('InvalidArgumentError');
 
-    this.type = 'InvalidArgumentError';
-    this.name = this.constructor.name;
-    this.statusCode = 400;
+    this.type = this.constructor.name;
+    this.message = 'Invalid argument';
+    this.status = 400;
+    this.error = error;
   }
 }
 

@@ -1,20 +1,18 @@
 'use strict';
 
 const chai = require('chai');
-const throwAuthenticationError = require('../index').throwAuthenticationError;
+const throwValidationError = require('../index').throwValidationError;
 
 const expect = chai.expect;
 
-describe('TESTING: throwAuthenticationError', () => {
+describe('TESTING: throwValidationError', () => {
   it('it should throw error', () => {
-    const authenticationError = {
-      email: ['invalid email'],
-    };
+    const errorObject = { key1: [ 'Some error message' ] };
 
     let result = null;
 
     try {
-      throwAuthenticationError(authenticationError);
+      throwValidationError(errorObject);
     } catch (error) {
       result = error;
     }
@@ -22,12 +20,12 @@ describe('TESTING: throwAuthenticationError', () => {
     expect(result).to.be.an('error');
     expect(result)
       .to.have.property('type')
-      .equal('AuthenticationError');
+      .equal('ValidationError');
     expect(result)
       .to.have.property('status')
-      .equal(401);
+      .equal(400);
     expect(result)
       .to.have.property('error')
-      .equal(authenticationError);
+      .equal(errorObject);
   });
 });

@@ -7,17 +7,18 @@ const expect = chai.expect;
 
 describe('TESTING: InvalidArgumentError', () => {
   it('it should create a new object', () => {
-    const error = new InvalidArgumentError();
+    const argument = 'variableName';
+    const error = new InvalidArgumentError(argument);
 
     expect(error).to.be.an('error');
-    expect(error)
-      .to.have.property('name')
-      .equal('InvalidArgumentError');
     expect(error)
       .to.have.property('type')
       .equal('InvalidArgumentError');
     expect(error)
-      .to.have.property('statusCode')
+      .to.have.property('status')
       .equal(400);
+    expect(error)
+      .to.have.property('error')
+      .equal(argument);
   });
 });

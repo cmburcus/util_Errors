@@ -1,9 +1,10 @@
 'use strict';
 
-const ValidationError = require('objection').ValidationError;
+const ObjectionValidationError = require('objection').ValidationError;
 const AuthenticationError = require('./errors/AuthenticationError');
 const InvalidTokenError = require('./errors/InvalidTokenError');
 const InvalidArgumentError = require('./errors/InvalidArgumentError');
+const ValidationError = require('./errors/ValidationError');
 
 module.exports = {
   /**
@@ -13,7 +14,7 @@ module.exports = {
    * @param {string} message - The message to be displayed for the column
    */
   throwModelValidationError: (column, message) => {
-    throw new ValidationError({
+    throw new ObjectionValidationError({
       type: 'ModelValidation',
       data: { [column]: [message] },
     });
@@ -22,21 +23,28 @@ module.exports = {
   /**
    * Throws an authentication error
    */
-  throwAuthenticationError: () => {
-    throw new AuthenticationError();
+  throwAuthenticationError: (error) => {
+    throw new AuthenticationError(error);
   },
 
   /**
    * Throws an invalid token error
    */
-  throwInvalidTokenError: (name, message) => {
-    throw new InvalidTokenError(name, message);
+  throwInvalidTokenError: (error) => {
+    throw new InvalidTokenError(error);
   },
 
   /**
    * Throws an invalid argument error
    */
-  throwInvalidArgumentError: () => {
-    throw new InvalidArgumentError();
+  throwInvalidArgumentError: (error) => {
+    throw new InvalidArgumentError(error);
+  },
+
+  /**
+   * Throws a validation error
+   */
+  throwValidationError: (error) => {
+    throw new ValidationError(error);
   },
 };

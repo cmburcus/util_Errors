@@ -1,12 +1,16 @@
 'use strict';
 
+/**
+ * This class can be used to throw when an authentication error occured
+ */
 class AuthenticationError extends Error {
-  constructor() {
+  constructor(error) {
     super('AuthenticationError');
 
-    this.type = 'AuthenticationError';
-    this.name = this.constructor.name;
-    this.statusCode = 401;
+    this.type = this.constructor.name;
+    this.message = 'Authentication failed';
+    this.status = 401;
+    this.error = error;
   }
 }
 
