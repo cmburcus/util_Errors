@@ -48,5 +48,8 @@ module.exports = {
     throw new ValidationError(error);
   },
 
+  AuthenticationError: AuthenticationError,
+  InvalidTokenError: InvalidTokenError,
+  InvalidArgumentError: InvalidArgumentError,
   ValidationError: ValidationError,
 };
