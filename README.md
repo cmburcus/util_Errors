@@ -186,7 +186,7 @@ Run your tests. You can modify the test files in between runs
 
 When you're done, you can stop the testing environment
 
-`make stop-env`
+`make stop`
 
 ## Contributions
 

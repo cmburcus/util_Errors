@@ -14,11 +14,11 @@ RESET=\033[0m
 
 # Starts the environment but doesn't run the tests
 .PHONY: build
-build: start-env install-dependencies
+build: start install-dependencies
 
 # Starts the environment, runs the tests and then closes the environment
 .PHONY: test
-test: build run-tests stop-env
+test: build run-tests stop
 
 #########################
 # STARTING ENVIRONMENTS
@@ -78,7 +78,7 @@ logs:
 
 # Formats the code with ESLint and Prettier. Will manage container boot
 .PHONY: format
-format: start-env install-dependencies
+format: start install-dependencies
 	echo "$(GREEN)\n---  Formatting code...\n$(RESET)"
 	docker-compose exec $(NODE_BIN) yarn format
 	echo "$(GREEN)\n--- Stopping development environment...\n$(GRAY)"
