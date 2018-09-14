@@ -112,19 +112,19 @@ Runs the `build` command but also runs your tests and closes the environment onc
 
 **Build container**
 
-`make start-env`
+`make start`
 
 Simply builds your docker container
 
 **Stop development environment**
 
-`make stop-env`
+`make stop`
 
 Stops the docker container
 
 **Clean development environment**
 
-`make clean-env`
+`make clean`
 
 Stops environment and removes associated images.
 

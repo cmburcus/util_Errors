@@ -21,35 +21,22 @@ module.exports = {
   },
 
   /**
-   * Throws an authentication error
+   * Returns an authentication error
    */
-  throwAuthenticationError: (error) => {
-    throw new AuthenticationError(error);
-  },
+  getAuthenticationError: (error) => (new AuthenticationError(error)),
 
   /**
-   * Throws an invalid token error
+   * Returns an invalid token error
    */
-  throwInvalidTokenError: (error) => {
-    throw new InvalidTokenError(error);
-  },
+  getInvalidTokenError: (error) => (new InvalidTokenError(error)),
 
   /**
-   * Throws an invalid argument error
+   * Returns an invalid argument error
    */
-  throwInvalidArgumentError: (error) => {
-    throw new InvalidArgumentError(error);
-  },
+  getInvalidArgumentError: (error) => (new InvalidArgumentError(error)),
 
   /**
-   * Throws a validation error
+   * Returns a validation error
    */
-  throwValidationError: (error) => {
-    throw new ValidationError(error);
-  },
-
-  AuthenticationError: AuthenticationError,
-  InvalidTokenError: InvalidTokenError,
-  InvalidArgumentError: InvalidArgumentError,
-  ValidationError: ValidationError,
+  getValidationError: (error) => (new ValidationError(error)),
 };

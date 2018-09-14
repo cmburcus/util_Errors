@@ -1,18 +1,18 @@
 'use strict';
 
 const chai = require('chai');
-const throwInvalidArgumentError = require('../index').throwInvalidArgumentError;
+const getInvalidArgumentError = require('../index').getInvalidArgumentError;
 
 const expect = chai.expect;
 
-describe('TESTING: throwInvalidArgumentError', () => {
-  it('it should throw error', () => {
+describe('TESTING: getInvalidArgumentError', () => {
+  it('it should be throwable', () => {
     const argument = 'variableName';
 
     let result = null;
 
     try {
-      throwInvalidArgumentError(argument);
+      throw getInvalidArgumentError(argument);
     } catch (error) {
       result = error;
     }

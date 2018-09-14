@@ -25,8 +25,8 @@ test: build run-tests stop-env
 #########################
 
 # Builds the container for development
-.PHONY: start-env
-start-env:
+.PHONY: start
+start:
 	echo "$(GREEN)\n--- Starting development environment...\n$(GRAY)"
 	docker-compose up -d --build
 
@@ -35,8 +35,8 @@ start-env:
 #########################
 
 # Stops the container for development
-.PHONY: stop-env
-stop-env:
+.PHONY: stop
+stop:
 	echo "$(GREEN)\n--- Stopping development environment...\n$(GRAY)"
 	docker-compose down -v --remove-orphans
 
@@ -45,8 +45,8 @@ stop-env:
 #########################
 
 # Removes the images and volumes for development
-.PHONY: clean-env
-clean-env:
+.PHONY: clean
+clean:
 	echo "$(GREEN)\n--- Removing development docker images and volumes...\n$(GRAY)"
 	docker-compose down -v --remove-orphans --rmi all
 

@@ -1,18 +1,18 @@
 'use strict';
 
 const chai = require('chai');
-const throwValidationError = require('../index').throwValidationError;
+const getValidationError = require('../index').getValidationError;
 
 const expect = chai.expect;
 
-describe('TESTING: throwValidationError', () => {
-  it('it should throw error', () => {
+describe('TESTING: getValidationError', () => {
+  it('it should be throwable', () => {
     const errorObject = { key1: [ 'Some error message' ] };
 
     let result = null;
 
     try {
-      throwValidationError(errorObject);
+      throw getValidationError(errorObject);
     } catch (error) {
       result = error;
     }

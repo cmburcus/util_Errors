@@ -1,18 +1,20 @@
 'use strict';
 
 const chai = require('chai');
-const throwInvalidTokenError = require('../index').throwInvalidTokenError;
+const getAuthenticationError = require('../index').getAuthenticationError;
 
 const expect = chai.expect;
 
-describe('TESTING: throwInvalidTokenError', () => {
-  it('it should throw error if name and message are passed as params', () => {
-    const tokenName = 'token';
+describe('TESTING: getAuthenticationError', () => {
+  it('it should be throwable', () => {
+    const authenticationError = {
+      email: ['invalid email'],
+    };
 
     let result = null;
 
     try {
-      throwInvalidTokenError(tokenName);
+      throw getAuthenticationError(authenticationError);
     } catch (error) {
       result = error;
     }
@@ -20,12 +22,12 @@ describe('TESTING: throwInvalidTokenError', () => {
     expect(result).to.be.an('error');
     expect(result)
       .to.have.property('type')
-      .equal('InvalidTokenError');
+      .equal('AuthenticationError');
     expect(result)
       .to.have.property('status')
       .equal(401);
     expect(result)
       .to.have.property('error')
-      .equal(tokenName);
+      .equal(authenticationError);
   });
 });
