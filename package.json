@@ -9,9 +9,7 @@
     "test": "DEBUG=myapp:* && nyc mocha -c -t 10000 --recursive --exit",
     "format": "eslint --quiet --report-unused-disable-directives --fix '**/*.js' || true"
   },
-  "dependencies": {
-    "objection": "1.1.10"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "4.1.2",
     "eslint": "4.19.1",

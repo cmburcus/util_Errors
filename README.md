@@ -4,14 +4,12 @@
 
 This utility is used to define Javascript errors that can be thrown from within your application. Instead of throwing generic Javascript errors that are non descriptive, this package would allow you to ensure the same format is used accross projects or microservices.
 
-[Objection ORM](https://vincit.github.io/objection.js/) is added as a dependency in this project to be able to throw a ValidationError should you wish to throw one manually.
-
 **Table of contents**
 * [Usage](#usage)
-  * throwModelValidationError
-  * throwAuthenticationError
-  * throwInvalidTokenError
-  * throwInvalidArgumentError
+  * getAuthenticationError
+  * getInvalidTokenError
+  * getInvalidArgumentError
+  * getValidationError
 * [Docker](#docker)
 * [Development requirements](#requirements-for-evelopment)
 * [Setup](#setup)
@@ -37,30 +35,25 @@ In your code, import the package:
 
 Use the following functions as required:
 
-`throwModelValidationError(error)` - Throws an objection validation error
-* type: ValidationError
-* name: ModelValidation
-* statusCode: 400
-
-`throwAuthenticationError(error)` - Throws an authentication error
+`getAuthenticationError(error)` - Gets an authentication error
 * type: AuthenticationError
 * message: 'Authentication failed'
 * status: `401`
 * error: `error` as passed as an argument
 
-`throwInvalidTokenError(error)` - Throws an invalid token error
+`getInvalidTokenError(error)` - Gets an invalid token error
 * type: InvalidTokenError
 * message: 'Invalid token'
 * status: `401`
 * error: `error` as passed as an argument
 
-`throwInvalidArgumentError(error)` - Throws an invalid argument error
+`getInvalidArgumentError(error)` - Gets an invalid argument error
 * type: InvalidArgumentError
 * message: 'Invalid argument'
 * status: `400`
 * error: `error` as passed as an argument
 
-`throwValidationError(error)` - Throws a validation error
+`getValidationError(error)` - Gets a validation error
 * type: ValidationError
 * message: 'Validation failed'
 * status: `400`
