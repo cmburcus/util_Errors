@@ -24,30 +24,30 @@ test: build run-tests stop
 # STARTING ENVIRONMENTS
 #########################
 
-# Builds the container for development
+# Builds the container
 .PHONY: start
 start:
-	echo "$(GREEN)\n--- Starting development environment...\n$(GRAY)"
+	echo "$(GREEN)\n--- Starting environment...\n$(GRAY)"
 	docker-compose up -d --build
 
 #########################
 # STOPPING ENVIRONMENTS
 #########################
 
-# Stops the container for development
+# Stops the container
 .PHONY: stop
 stop:
-	echo "$(GREEN)\n--- Stopping development environment...\n$(GRAY)"
+	echo "$(GREEN)\n--- Stopping environment...\n$(GRAY)"
 	docker-compose down -v --remove-orphans
 
 #########################
 # CLEAN ENVIRONMENTS
 #########################
 
-# Removes the images and volumes for development
+# Removes the images and volumes
 .PHONY: clean
 clean:
-	echo "$(GREEN)\n--- Removing development docker images and volumes...\n$(GRAY)"
+	echo "$(GREEN)\n--- Removing docker images and volumes...\n$(GRAY)"
 	docker-compose down -v --remove-orphans --rmi all
 
 #########################
@@ -81,5 +81,5 @@ logs:
 format: start install-dependencies
 	echo "$(GREEN)\n---  Formatting code...\n$(RESET)"
 	docker-compose exec $(NODE_BIN) yarn format
-	echo "$(GREEN)\n--- Stopping development environment...\n$(GRAY)"
+	echo "$(GREEN)\n--- Stopping environment...\n$(GRAY)"
 	docker-compose down -v --remove-orphans

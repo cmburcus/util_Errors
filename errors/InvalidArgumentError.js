@@ -13,7 +13,7 @@ class InvalidArgumentError extends Error {
     this.type = this.constructor.name;
     this.message = 'Invalid argument';
     this.status = 400;
-    this.error = error;
+    this.error = error || null;
   }
 }
 

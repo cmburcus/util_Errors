@@ -1,51 +1,49 @@
 'use strict';
 
 const chai = require('chai');
-const InvalidTokenError = require('../errors/InvalidTokenError');
-const getInvalidTokenError = require('../index').getInvalidTokenError;
+const NotFoundError = require('../errors/NotFoundError');
+const getNotFoundError = require('../index').getNotFoundError;
 
 const expect = chai.expect;
 
-describe('TESTING: InvalidTokenError', () => {
+describe('TESTING: AuthenticationError', () => {
   it('it should create a new object', () => {
-    const tokenName = 'token';
+    const notFoundError = 'entity not found';
 
-    const error = new InvalidTokenError(tokenName);
+    const error = new NotFoundError(notFoundError);
 
     expect(error).to.be.an('error');
     expect(error)
       .to.have.property('type')
-      .equal('InvalidTokenError');
+      .equal('NotFoundError');
     expect(error)
       .to.have.property('status')
-      .equal(401);
+      .equal(404);
     expect(error)
       .to.have.property('error')
-      .equal(tokenName);
+      .equal(notFoundError);
   });
 
   it('it should have the error as null if no error is passed', () => {
-    const error = new InvalidTokenError();
+    const error = new NotFoundError();
 
     expect(error).to.be.an('error');
     expect(error)
       .to.have.property('type')
-      .equal('InvalidTokenError');
+      .equal('NotFoundError');
     expect(error)
       .to.have.property('status')
-      .equal(401);
+      .equal(404);
     expect(error).to.have.property('error').be.null;
   });
 });
 
-describe('TESTING: getInvalidTokenError', () => {
+describe('TESTING: getNotFoundError', () => {
   it('it should be throwable', () => {
-    const tokenName = 'token';
-
     let result = null;
 
     try {
-      throw getInvalidTokenError(tokenName);
+      throw getNotFoundError();
     } catch (error) {
       result = error;
     }
@@ -53,12 +51,9 @@ describe('TESTING: getInvalidTokenError', () => {
     expect(result).to.be.an('error');
     expect(result)
       .to.have.property('type')
-      .equal('InvalidTokenError');
+      .equal('NotFoundError');
     expect(result)
       .to.have.property('status')
-      .equal(401);
-    expect(result)
-      .to.have.property('error')
-      .equal(tokenName);
+      .equal(404);
   });
 });

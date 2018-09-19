@@ -13,7 +13,7 @@ class InvalidTokenError extends Error {
     this.type = this.constructor.name;
     this.message = 'Invalid token';
     this.status = 401;
-    this.error = error;
+    this.error = error || null;
   }
 }
 
